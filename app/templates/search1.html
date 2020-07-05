@@ -1,0 +1,255 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<title> Pet Search</title>
+<style type="text/css">
+    body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #32919a;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    .topnav a:hover {
+        background-color: #65c3cd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #65c3cd;
+        color: white;
+    }
+
+    h1 {
+        font-color: #6CDBB6;
+        color: #6CDBB6;
+    }
+
+    /*.center{
+	align-content: center;	
+}*/
+    .submit {
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .subnav {
+        float: left;
+        overflow: hidden;
+    }
+
+    .subnav .subnavbtn {
+        color: #f2f2f2;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .subnav:hover .subnavbtn {
+        background-color: gray;
+    }
+
+    .subnav-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: gray;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .subnav-content a {
+        float: left;
+        color: white;
+        text-decoration: none;
+    }
+
+    .subnav-content a:hover {
+        background-color: gray;
+        color: black;
+    }
+
+    .subnav:hover .subnav-content {
+        display: block;
+    }
+
+    p {
+        text-align: center;
+        text-decoration: underline;
+        text-transform: capitalize;
+        text-shadow: 5px 2px 3px Red;
+        font-style: oblique;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+
+    input[type=submit] {
+        padding: 14px 28px;
+        font-size: 20px;
+        cursor: pointer;
+        border-color: #2196F3;
+        color: dodgerblue;
+    }
+
+    input[type=submit].hover {
+        background: #2196F3;
+        color: white;
+
+    }
+
+
+    .form-body {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: 50% 0;
+    }
+</style>
+
+<body bgcolor="#9ad8de" style="background-image:url({% static 'pug.jpg'%});" class="form-body">
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="http://127.0.0.1:8000/display/">Pets</a>
+        <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+
+        <div class="subnav">
+            <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+            <div class="subnav-content">
+                <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+                <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+            </div>
+        </div>
+
+        <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+        <a href="https://www.jivdayatrust.org/donation-form/">Donate</a>
+		<a href="http://127.0.0.1:8000/blog/">Blog</a>
+        <a href="http://127.0.0.1:8000/login/">Log In</a>
+    </div>
+    <h2>
+        <center> Pet Search</center>
+    </h2>
+    <form action="/searchpet/" method="GET">
+    <table>
+
+        <h3>
+            <tr> &nbsp;&nbsp;
+                Species:
+
+                <select id="Species" name="species">
+                    <option value="%">---------</option>
+                    {% for results in pettype %}
+                    <option value="{{ results.type_id }}">{{ results.pet_type }}</option>
+                    {%endfor%}
+                </select>
+
+
+                Sex:
+                <!-- <select id="Sex">
+                    <option value="all">Either</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select> -->
+
+
+                <select id="Sex" name="sex">
+                    <option value="%">---------</option>
+                    {% for results2 in sextype %}
+                    <option value="{{ results2.pet_id }}">{{ results2.sex }}</option>
+                    {%endfor%}
+                </select>
+
+                <br><br> &nbsp;&nbsp;
+                Breed:
+
+                <select id="Breed" name="breed">
+                    <option value="%">---------</option>
+                    {% for results1 in breedtype %}
+                    <option value="{{ results1.breed_id }}">{{ results1.breed }}</option>
+                    {%endfor%}
+                </select>
+
+
+                <br><br> &nbsp;&nbsp;
+                <!-- Size:
+                <input type="checkbox" name="s1" value="Size">
+                Small
+                <input type="checkbox" name="s2">
+                Medium                                                                                                                                                                                                       
+                <input type="checkbox" name="s3">
+                Large
+                <br><br>
+                </form>
+                &nbsp;&nbsp; -->
+                Size:                                     
+                <select id="Size" name="size">
+                    <option value="%">---------</option>
+                    {% for results3 in sizetype %}
+                    <option value="{{ results3.pet_id }}">{{ results3.size }}</option>
+                    {%endfor%}
+                </select>
+                <br><br> &nbsp;&nbsp;
+
+                <!-- Age:<br>
+            <tr>
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <input type="checkbox" id="size" name="a1">
+                1-3
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="a2">
+                4-7
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="a3">
+                8-12
+                <br> -->
+                Age:
+                <select id="Age" name="age">
+                    <option value="%">---------</option>
+                    {% for results4 in agetype %}
+                    <option value="{{ results4.pet_id }}">{{ results4.age }}</option>
+                    {%endfor%}
+                </select>
+                <br><br> &nbsp;&nbsp;
+
+
+            </tr>
+            </form>
+            <br>
+            <tr>
+                <center>
+                    <h1> <input type="submit" name="Search" value="Search"></h1>
+                </center>
+            </tr>
+    </table>
+    <br>
+
+
+
+    <p> Find your perfect pet!</p>
+    <p>Select some search criteria and click “Search!” </p>
+</body>
+
+</html>

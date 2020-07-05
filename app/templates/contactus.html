@@ -1,0 +1,192 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+.form-body { background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: 50% 0;  }
+.topnav {
+  overflow: hidden;
+  background-color: #32919a;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.topnav a:hover {
+  background-color:  #65c3cd;
+  color: black;
+}
+input[type="text"]
+{
+  font-size: 20px;
+}
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+color: #f2f2f2;
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.subnav:hover .subnavbtn {
+  background-color: gray;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: gray;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: gray;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="search"], textarea, select, input[type="button"], input[type="submit"], button { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;  }
+
+html { overflow-y: inherit !important; }
+body { font:15px/1.45 'Arial', Helvetica, sans-serif; color:#2f3940; margin: 0; padding: 0; }
+.form-body { background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: 50% 0;  }
+.form-main-box { display: flex; align-items: center; height: 100vh; }
+.form-style-6 { max-width: 600px; margin: 0 auto; width: 100%; padding: 20px; }
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    min-height: 45px;
+    border-color: #dedede;
+    outline: none;
+}
+textarea.form-control {
+    height: 150px;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #999;
+    outline: none;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: 85%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.column1 {
+  float: center;
+  width: 60%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+.btn { padding: 14px 25px; box-shadow: none; line-height: 1; font-size: 15px; font-weight: 600; border-radius: 5px; letter-spacing: 0.02rem; background: #faa61a; border:0; color: #fff; }
+.btn:hover, .btn:focus, .btn:active { box-shadow: none; background: #18242b; color: #fff; }
+</style>
+</head>
+<body bgcolor="#9ad8de"style="background-image:url({% static 'p.png'%});" class="form-body">
+<div class="topnav">
+   <a  href="http://127.0.0.1:8000/home/">Home</a>
+  <a href="http://127.0.0.1:8000/display/">Pets</a>
+  <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+  
+  <div class="subnav">
+    <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+    <div class="subnav-content">
+      <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+      <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+    </div>
+  </div> 
+  
+ <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+  <a href="http://127.0.0.1:8000/donate/">Donate</a>
+  <a href="http://127.0.0.1:8000/blog/">Blog</a>
+  <a href="http://127.0.0.1:8000/login/">Log In</a>
+  <a href="http://127.0.0.1:8000/logout/">Log out</a>
+  <i style="color:White" align=center bgcolor=Grey><h4><u><b> Welcome </u>&nbsp; {{request.session.name}}</b>😄 </i>
+ </div>
+<div class="row">
+<div class="column">
+<div class="form-main-box" >
+	<div class="form-style-6">
+		<div class="form-style">
+			<h1><center>Contact Us </center></h1>
+			<form action="/contactadd/" method="GET">
+				<div class="form-block">
+					<div class="form-group">
+						<input class="form-control" type="text" name="fname" placeholder="First Name" required />
+					</div>
+
+					<div class="form-group">
+						<input class="form-control" type="text" name="lname" placeholder="Last Name"  required />
+					</div>
+
+					<div class="form-group">
+						<input class="form-control" type="email" name="email" placeholder="Email Address" required />
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" name="message" placeholder="Type your Message" required></textarea>
+					</div>
+					<div class="form-group">
+						<input class="btn" type="submit" value="Send" />
+					</div>
+				
+			</form>
+		</div>
+	</div>
+
+</div>
+<div class="column1">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9479865011563!2d72.54317331444229!3d23.025681921990998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84e80de02093%3A0x3b208475b26e22f8!2sJivdaya%20Charitable%20Trust!5e0!3m2!1sen!2sin!4v1581051410462!5m2!1sen!2sin" width="130%" height="100%" frameborder="2" style="border-width: :3px;" allowfullscreen="" >
+   </iframe>  
+    
+    </div> 
+	
+  </div>
+  </div> 
+  </div>
+
+
+</body>
+</html>

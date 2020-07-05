@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<title>Pet Details</title>
+<style>
+  .topnav {
+    overflow: hidden;
+    background-color: #32919a;
+  }
+
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 15px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .topnav a:hover {
+    background-color: #65c3cd;
+    color: black;
+  }
+
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .pet {
+    width: 190px;
+    height: 246px;
+    float: left;
+    margin-left: 0px;
+    margin-right: 18px;
+    margin-top: 7px;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px dotted #555;
+    border-radius: 5px;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .subnav {
+    float: left;
+    overflow: hidden;
+  }
+
+  .subnav .subnavbtn {
+    color: #f2f2f2;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .subnav:hover .subnavbtn {
+    background-color: gray;
+  }
+
+  .subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: gray;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .subnav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+  }
+
+  .subnav-content a:hover {
+    background-color: gray;
+    color: black;
+  }
+
+  .subnav:hover .subnav-content {
+    display: block;
+  }
+</style>
+
+<body bgcolor="#9ad8de">
+  <div class="topnav">
+     <a  href="http://127.0.0.1:8000/home/">Home</a>
+    <a href="http://127.0.0.1:8000/display/">Pets</a>
+    <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+
+    <div class="subnav">
+      <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+      <div class="subnav-content">
+        <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+        <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+      </div>
+    </div>
+
+    <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+    <a href="http://127.0.0.1:8000/donate/">Donate</a>
+	<a href="http://127.0.0.1:8000/blog/">Blog</a>
+    <a href="http://127.0.0.1:8000/login/">Log In</a>
+	<a href="http://127.0.0.1:8000/logout/">Log out</a>
+  <i style="color:White" align=center bgcolor=Grey><h4><u><b> Welcome </u>&nbsp; {{request.session.name}}</b>😄 </i>
+  </div>
+
+  <table border=1>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>sex</th>
+      <th>Colour</th>
+      <th>Age</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+
+    <tr>
+      <div class="">
+
+
+        {%for i in display %}
+        <td>
+          {% if i.image %}
+          <img src="{{i.image.url}}" width="240">
+          {% endif %}
+        </td>
+        <td> {{i.pet_name}}</td>
+        <td> {{i.breed}}</td>
+        <td> {{i.sex}} </td>
+        <td> {{i.colour}} </td>
+        <td> {{i.age}} </td>
+        <td> {{i.size}} </td>
+        <td> {{i.desc}} </td>
+    </tr>
+    {%endfor%}
+  </table>
+
+</body>
+
+</html>

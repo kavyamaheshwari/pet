@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+      font-size: 17px;
+    }
+
+    #myVideo {
+      position: fixed;
+      no-repeat;
+      top: 35%;
+      left: 50%;
+      z-index: -1000;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+    }
+
+    img.a {
+      position: absolute;
+      bottom: 100px;
+      left: 5px;
+      width: 28%;
+      height: 60%;
+      top: 8px;
+      right: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    .topnav {
+      overflow: hidden;
+      background-color: #32919a;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 19px 12px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .topnav a:hover {
+      background-color: #65c3cd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #65c3cd;
+      color: white;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .subnav {
+      float: left;
+      overflow: hidden;
+    }
+
+    .subnav .subnavbtn {
+      color: #f2f2f2;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      padding: 19px 12px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .subnav:hover .subnavbtn {
+      background-color: gray;
+    }
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      background-color: gray;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .subnav-content a {
+      float: left;
+      color: white;
+      text-decoration: none;
+    }
+
+    .subnav-content a:hover {
+      background-color: gray;
+      color: black;
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+    /*.container {
+      width: 100%;
+      height: 100%;
+	}*/
+
+    .leftpane {
+      width: 33.33%;
+      height: 100%;
+      float: left;
+      border-collapse: collapse;
+    }
+
+    .middlepane {
+      width: 33.33%;
+      height: 100%;
+      float: left;
+      border-collapse: collapse;
+    }
+
+    .rightpane {
+      width: 33.33%;
+      height: 100%;
+      position: relative;
+      float: right;
+      border-width: 5px;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+
+ <!-- {% if request.session.name % } -->
+
+  <div class="topnav">
+    <a  href="http://127.0.0.1:8000/home/">Home</a>
+    <a href="http://127.0.0.1:8000/display/">Pets</a>
+    <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+
+    <div class="subnav">
+      <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+      <div class="subnav-content">
+        <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+        <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+      </div>
+    </div>
+
+    <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+    <a href="http://127.0.0.1:8000/donate/">Donate</a>
+    <a href="http://127.0.0.1:8000/ques/">Adopt</a>
+	<a href="http://127.0.0.1:8000/blog/">Blog</a>
+  <a href="http://127.0.0.1:8000/ques/">Adopt</a>
+	<a href="http://127.0.0.1:8000/login/">Log In</a>
+	<a href="http://127.0.0.1:8000/logout/">Log out</a>
+  <!--<input type="submit" value="LOG OUT">-->
+   <i style="color:White" align=center bgcolor=Grey><h4><u><b> Welcome </u>&nbsp; {{request.session.name}}</b>😄 </i>
+  </div>
+  <video autoplay muted loop id="myVideo">
+    <source src="{%static 'pup.mp4'%}" type="video/mp4">
+
+  </video>
+
+  <img src="{% static 'adop.png'%}" name="a">
+  <div class="clearfix"></div>
+  <br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="content">
+    <center>
+      <i style="color:White" align=center bgcolor=Grey> <h2><u> YOUR PET ADOPTION JOURNEY </u></h2></i>
+    </center>
+    <div class="container">
+
+      <div class="leftpane" style="background-color: #daf1e9;" style="border-width: 3px;">
+        <center>
+          <img src="{% static 'search.png'%}" width="35%" height="10%">
+          <h2>Search</h2>
+          <p>It's easy to find a pet who's right for you at a shelter or rescue group.<br>
+            Simply select the category above to start your search
+        </center>
+      </div>
+    </div>
+    <div class="middlepane" style="background-color: #daf1e9;">
+      <center>
+        <img src="{% static 'meet.png'%}" width="35%" height="10%">
+        <h2>Meet</h2>
+        <p>Once you find a pet, click "about me" to get contact info for their shelter .
+          Contact them to learn more about how to meet and adopt the pet..</p>
+      </center>
+    </div>
+  </div>
+  <div class="rightpane" style="background-color: #daf1e9;">
+    <center><img src="{% static 'adopt.png'%}" width="35%" height="10%">
+
+      <h2>Adopt</h2>
+      <p>The shelter will walk you through their adoption process.
+        Prepare your home for the arrival of your favorite pet to help them adjust to their new family.</p>
+  </div>
+
+  </div>
+  </div>
+
+<!--
+{ % else % }
+    <h1> Session Expired </h1>
+{ % endif % }-->
+</body>
+
+</html>

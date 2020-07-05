@@ -1,0 +1,143 @@
+{%load static%}
+<html>
+<head></head>
+<style>
+.form-body { background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: 50% 0;  }
+body {
+  margin: 0; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #32919a;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.topnav a:hover {
+  background-color:  #65c3cd;
+  color: black;
+}
+input[type="text"]
+{
+  font-size: 20px;
+}
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+color: #f2f2f2;
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.subnav:hover .subnavbtn {
+  background-color: gray;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: gray;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: gray;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+textarea{
+	 
+    width: 500px;
+    height: 130px;
+    border: none;
+    border-radius: 150px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    padding-left: 45px;
+    padding-right: 20px;
+    padding-top: 12px;
+    margin-bottom: 20px;
+}
+.btn{
+			color: white;
+            border-radius: 5px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+			background: rgb(66, 184, 221);
+			font-size: 20px;
+			padding: 10px 20px;
+			cursor: pointer;
+ }
+
+
+</style>
+<body bgcolor="#9ad8de"style="background-image:url({% static 'p.png'%});" class="form-body">
+<div class="topnav">
+  <a class="active" href="http://127.0.0.1:8000/home/">Home</a>
+  <a href="http://127.0.0.1:8000/display/">Pets</a>
+  <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+  
+  <div class="subnav">
+    <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+    <div class="subnav-content">
+      <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+      <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+    </div>
+  </div> 
+  
+ <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+   <a href="http://127.0.0.1:8000/donate/">Donate</a>
+  <a href="http://127.0.0.1:8000/blog/">Blog</a>
+  <a href="http://127.0.0.1:8000/login/">Log In</a>
+  <a href="http://127.0.0.1:8000/logout/">Log out</a>
+    <i style="color:White" align=center bgcolor=Grey><h4><u><b> Welcome </u>&nbsp; {{request.session.name}}</b>😄 </i>
+ </div>
+<form action="/feedadd/" method="GET">
+<br>
+<br>
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feedback</h1></center><br>
+
+
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Email: 
+		<input type="text" name="email" required>
+	<br><br><br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Message:<br><br>
+		 <textarea id="txt" name="txt" rows="5" cols="50"> </textarea>
+		<!--<input type="text" name="message" required>-->
+	<br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <button class="btn">Submit</button>
+</form>
+</body>
+</html>
+		

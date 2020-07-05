@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add background color with some padding */
+body {
+  font-family:  cursive;
+  padding: 0px;
+  background: #9ad8de;
+}
+
+/* Header/Blog Title */
+.header {
+ 
+  font-size: 20px;
+  text-align: center;
+  background: #ecf8f9;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 10px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color:#ffffff;
+  width: 100%; 
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: #ecf8f9;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #d8f1f3;
+  margin-top: 20px;
+}
+.topnav {
+      overflow: hidden;
+      background-color: #32919a;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .topnav a:hover {
+      background-color: #65c3cd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #65c3cd;
+      color: white;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .subnav {
+      float: left;
+      overflow: hidden;
+    }
+
+    .subnav .subnavbtn {
+      color: #f2f2f2;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      padding: 10px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .subnav:hover .subnavbtn {
+      background-color: gray;
+    }
+
+    .subnav-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      background-color: gray;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .subnav-content a {
+      float: left;
+      color: white;
+      text-decoration: none;
+    }
+
+    .subnav-content a:hover {
+      background-color: gray;
+      color: black;
+    }
+
+    .subnav:hover .subnav-content {
+      display: block;
+    }
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <a  href="http://127.0.0.1:8000/home/">Home</a>
+    <a href="http://127.0.0.1:8000/display/">Pets</a>
+    <a href="http://127.0.0.1:8000/search/">Pet Search</a>
+
+    <div class="subnav">
+      <button class="subnavbtn">About<i class="fa fa-caret-down"></i></button>&nbsp &nbsp
+      <div class="subnav-content">
+        <a href="http://127.0.0.1:8000/contactus/">Contact Us</a>
+        <a href="http://127.0.0.1:8000/feed/">FeedBack</a>
+      </div>
+    </div>
+
+    <!-- <a href="http://127.0.0.1:8000/contactus/">Contact Us</a> -->
+    <a href="http://127.0.0.1:8000/donate/">Donate</a>
+    <a href="http://127.0.0.1:8000/ques/">Adopt</a>
+  <a href="http://127.0.0.1:8000/blog/">Blog</a>
+  <i style="color:White" align=center bgcolor=Grey><h4><u><b> Welcome </u>&nbsp; {{request.session.name}}</b>😄 </i>
+  <br>
+
+<div class="header">
+    <h2>PET BLOGS</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>Tips When You’re Bringing Home a New Puppy</h2>
+      <div class="fakeimg" style=" width: 650px; height:290px;">
+	  <img src="{% static 'back.jpg'%}" width=100% height=100%>
+	  </div>
+	  
+      <p>As a Pet lover, nothing quite compares to the experience of seeing your new puppy for the first time, knowing you’ll soon be best friends and that they’ll become a permanent fixture in your life.</p>
+	  <p>1. Keep Calm
+	  <br>
+	  2. Start Things Off with a Nice, Long Walk
+	  <br>
+	  3. Formally Introduce Their New Home
+	  <br>
+	  4. Take Them on a Tour
+	  <br>
+	  5. Stick to Body Language and Simple Sounds
+	  <br>
+	  6. Show Them Where Their Meals Will Be Served
+	  <br>
+	  7. Visit the Vet within the First Few Days
+	  <br>
+	  8. Supervise Them Around Other Pups, Kittens, and People
+	  <br>
+	  </p>
+	  
+    </div>
+	
+	
+    <div class="card">
+      <h2>Nutrition Guidelines for Your New Kitten</h2>
+      <div class="fakeimg" style=" width:650px;height:280px;">
+	   <img src="{% static 'kittens.jpg'%}" width=100% height=100%>
+	  </div>
+      <p>There’s nothing quite like bringing home a new kitten. Aside from how utterly adorable they are, you also know that this new kitten is going to bring you endless joy as they become an integral part of your family.</p>
+    <p>Kittens are snackers. Perhaps you can relate. They don’t just eat breakfast, lunch and dinner. They’d also appreciate a couple small meals in between.
+	</p>
+	<p> <h2> <b> Go with kitten food, not cat food </b> </h2> </p>
+	<p>Growing kittens also have different nutritional requirements than their older comrades. If you try feeding them food for full-grown cats, their specific dietary requirements won’t get met.</p>
+	<p>As opposed to adults, fur babies need more minerals, vitamins, protein and amino acids. In fact, 30% of their energy should be coming from protein.</p>
+	<p> <h4> <b> Avoid “store brands” and opt for higher-quality </b> </h4> </p>
+	<p>“Complete and balanced nutrition for kittens based on AAFCO feeding trials.”</p>
+	<p> <h4> <b> Canned food is preferable for kittens </b> </h4> </p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Us</h2>
+      <div class="fakeimg" style="height:100px;">
+	  <img src="{% static 'pet.jpg'%}" width=100% height=100%>
+	  </div>
+      <p>#ADOPTPURELOVE</p>
+	  <p>Shelter pets are a little bit of a lot of things, but they’re all pure love.</p>
+    </div>
+    <div class="card">
+      <h3>How To Help</h3>
+      <div class="fakeimg"> <img src="{% static 'adoptme.png'%}" width=100% height=100%></div><br>
+      <div class="fakeimg"> <img src="{% static 'donate.jpg'%}" width=100% height=100%></div><br>
+      <div class="fakeimg"> <img src="{% static 'petcare.png'%}" width=100% height=100%></div>
+    </div>
+   <!-- <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div> -->
+  </div>
+</div>
+
+<div class="footer">
+  <h2></h2>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<center>
+		<h1> Questionnaire</h1>
+	</center>
+</head>
+<title> Questionnaire </title>
+
+<body bgcolor="#9ad8de">
+	<form action="ans" method="GET">
+	<center>
+		<table border=1>
+
+			{% for a in ques %}
+			<tr>
+				<td>{{a.que_id}}</td>
+				<td><required>{{a.question}}</required></td>
+				<td><input type="text"></td>
+				</td>
+
+			{% endfor %}
+
+		</table>
+		<br>
+		<button onclick="myfun()">submit</button>
+
+		<script>
+			function mufun()
+			{
+				alert('done!!successfully')
+			}
+		</script>
+<!-- 		<input type="submit" value="Submit"> -->
+
+	</center>
+	
+		
+	</form>
+</body>
+
+</html>
